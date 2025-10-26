@@ -1,0 +1,708 @@
+.seccionCertificados {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0;
+  transition: all 0.3s ease;
+}
+
+.seccionCertificados.dark {
+  background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.seccionCertificados.light {
+  background: linear-gradient(135deg, #f8faff 0%, #e8f0ff 50%, #dde7ff 100%);
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+}
+
+.light .subtitulo {
+  color: rgba(10, 10, 20, 0.7);
+}
+
+.gridCertificados {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.tarjeta {
+  background: rgba(59, 130, 246, 0.05);
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.light .tarjeta {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(30, 58, 138, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta:hover {
+  transform: translateY(-10px);
+  border-color: #3b82f6;
+  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+}
+
+.light .tarjeta:hover {
+  border-color: #1e3a8a;
+  box-shadow: 0 15px 40px rgba(30, 58, 138, 0.2);
+}
+
+.imagenContainer {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tarjeta:hover .imagen {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.9));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tarjeta:hover .overlay {
+  opacity: 1;
+}
+
+.overlay ion-icon {
+  font-size: 3rem;
+  color: white;
+}
+
+.overlay span {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.contenidoTarjeta {
+  padding: 1.5rem;
+}
+
+.iconoTitulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.iconoTitulo ion-icon {
+  font-size: 1.8rem;
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.light .iconoTitulo ion-icon {
+  color: #1e3a8a;
+}
+
+.tituloTarjeta {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.light .tituloTarjeta {
+  color: #1e3a8a;
+}
+
+.descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.light .descripcion {
+  color: rgba(10, 10, 20, 0.7);
+}
+
+.fecha {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.light .fecha {
+  color: rgba(10, 10, 20, 0.8);
+}
+
+.fecha ion-icon {
+  font-size: 1.2rem;
+  color: #3b82f6;
+}
+
+.pendientes {
+  background: rgba(251, 191, 36, 0.1);
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.light .pendientes {
+  background: rgba(251, 191, 36, 0.05);
+}
+
+.iconoPendiente {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(251, 191, 36, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconoPendiente ion-icon {
+  font-size: 3rem;
+  color: #fbbf24;
+}
+
+.textoPendiente h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 0.5rem 0;
+}
+
+.light .textoPendiente h4 {
+  color: #1e3a8a;
+}
+
+.textoPendiente p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.light .textoPendiente p {
+  color: rgba(10, 10, 20, 0.7);
+}
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+
+.botonPagina,
+.numeroPagina {
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.light .botonPagina,
+.light .numeroPagina {
+  background: rgba(30, 58, 138, 0.05);
+  border-color: rgba(30, 58, 138, 0.3);
+  color: rgba(10, 10, 20, 0.8);
+}
+
+.botonPagina ion-icon {
+  font-size: 1.3rem;
+}
+
+.botonPagina:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.botonPagina:not(:disabled):hover,
+.numeroPagina:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.light .botonPagina:not(:disabled):hover,
+.light .numeroPagina:hover {
+  background: rgba(30, 58, 138, 0.1);
+  border-color: #1e3a8a;
+}
+
+.paginaActiva {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
+  border-color: #3b82f6;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContenido {
+  background: rgba(10, 10, 20, 0.95);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  position: relative;
+  backdrop-filter: blur(20px);
+  animation: deslizar 0.4s ease;
+}
+
+.light .modalContenido {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(30, 58, 138, 0.3);
+}
+
+@keyframes deslizar {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cerrar {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.cerrar ion-icon {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light .cerrar ion-icon {
+  color: rgba(10, 10, 20, 0.8);
+}
+
+.cerrar:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  transform: rotate(90deg);
+}
+
+.cerrar:hover ion-icon {
+  color: white;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.modalIcono {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modalIcono ion-icon {
+  font-size: 2rem;
+  color: white;
+}
+
+.modalTitulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.light .modalTitulo {
+  color: #1e3a8a;
+}
+
+.modalImagen {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.imagenModal {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalDescripcion {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.light .modalDescripcion {
+  color: rgba(10, 10, 20, 0.8);
+}
+
+.modalFecha,
+.modalInstitucion {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.light .modalFecha,
+.light .modalInstitucion {
+  background: rgba(30, 58, 138, 0.05);
+  border-color: rgba(30, 58, 138, 0.2);
+  color: rgba(10, 10, 20, 0.9);
+}
+
+.modalFecha ion-icon,
+.modalInstitucion ion-icon {
+  font-size: 1.5rem;
+  color: #3b82f6;
+}
+
+.cargando {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #3b82f6;
+  font-size: 1.1rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(59, 130, 246, 0.2);
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: girarSpinner 0.8s linear infinite;
+}
+
+@keyframes girarSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modalContenido::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modalContenido::-webkit-scrollbar-track {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 10px;
+}
+
+.modalContenido::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  border-radius: 10px;
+}
+
+.modalContenido::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+@media (max-width: 768px) {
+  .seccionCertificados {
+    padding: 4rem 0;
+  }
+
+  .contenedor {
+    padding: 0 1.5rem;
+  }
+
+  .titulo {
+    font-size: 2.5rem;
+  }
+
+  .subtitulo {
+    font-size: 1rem;
+  }
+
+  .gridCertificados {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .pendientes {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .iconoPendiente {
+    width: 70px;
+    height: 70px;
+  }
+
+  .textoPendiente h4 {
+    font-size: 1.3rem;
+  }
+
+  .textoPendiente p {
+    font-size: 1rem;
+  }
+
+  .modalContenido {
+    padding: 2rem 1.5rem;
+  }
+
+  .modalHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modalTitulo {
+    font-size: 1.6rem;
+  }
+
+  .paginacion {
+    gap: 0.5rem;
+  }
+
+  .botonPagina,
+  .numeroPagina {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .seccionCertificados {
+    padding: 3rem 0;
+  }
+
+  .contenedor {
+    padding: 0 1rem;
+  }
+
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .subtitulo {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .gridCertificados {
+    gap: 1.5rem;
+  }
+
+  .imagenContainer {
+    height: 220px;
+  }
+
+  .contenidoTarjeta {
+    padding: 1.25rem;
+  }
+
+  .tituloTarjeta {
+    font-size: 1.15rem;
+  }
+
+  .descripcion {
+    font-size: 0.95rem;
+  }
+
+  .pendientes {
+    padding: 1.25rem;
+  }
+
+  .iconoPendiente {
+    width: 60px;
+    height: 60px;
+  }
+
+  .iconoPendiente ion-icon {
+    font-size: 2.5rem;
+  }
+
+  .textoPendiente h4 {
+    font-size: 1.2rem;
+  }
+
+  .textoPendiente p {
+    font-size: 0.95rem;
+  }
+
+  .modal {
+    padding: 1rem;
+  }
+
+  .modalContenido {
+    padding: 1.5rem 1rem;
+    max-height: 85vh;
+  }
+
+  .cerrar {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .cerrar ion-icon {
+    font-size: 1.8rem;
+  }
+
+  .modalIcono {
+    width: 50px;
+    height: 50px;
+  }
+
+  .modalIcono ion-icon {
+    font-size: 1.8rem;
+  }
+
+  .modalTitulo {
+    font-size: 1.4rem;
+  }
+
+  .modalDescripcion {
+    font-size: 0.95rem;
+  }
+
+  .paginacion {
+    gap: 0.4rem;
+    margin-top: 2rem;
+  }
+
+  .botonPagina,
+  .numeroPagina {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .botonPagina ion-icon {
+    font-size: 1.2rem;
+  }
+}

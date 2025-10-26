@@ -1,0 +1,562 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.header.dark {
+  background: rgba(10, 10, 20, 0.8);
+}
+
+.header.light {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.headerFijado {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.headerFijado.dark {
+  background: rgba(10, 10, 20, 0.95);
+}
+
+.headerFijado.light {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.contenidoHeader {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cargando {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #1e3a8a;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logoImagen {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagenPerfil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logoTexto {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.light .logoTexto {
+  color: #1e3a8a;
+}
+
+.dark .logoTexto {
+  color: #3b82f6;
+}
+
+.navegacionDesktop {
+  display: flex;
+}
+
+.listaNavegacion {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.enlace {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.enlace::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, transparent 50%, #1e3a8a 50%);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.enlace:hover::before {
+  opacity: 1;
+  width: 30px;
+  height: 30px;
+}
+
+.light .enlace {
+  color: rgba(30, 58, 138, 0.7);
+}
+
+.enlace:hover {
+  color: white;
+  border-bottom: 2px solid #1e3a8a;
+  padding-bottom: calc(0.75rem - 2px);
+}
+
+.light .enlace:hover {
+  color: #1e3a8a;
+}
+
+.enlaceActivo {
+  color: white;
+  background: transparent;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: calc(0.75rem - 2px);
+  position: relative;
+}
+
+.enlaceActivo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, transparent 50%, #1e3a8a 50%);
+}
+
+.light .enlaceActivo {
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botonModo,
+.botonIdioma {
+  background: transparent;
+  border: 1px solid #1e3a8a;
+  color: #3b82f6;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  min-width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.botonModo::before,
+.botonIdioma::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background: #1e3a8a;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  transition: all 0.3s ease;
+}
+
+.botonModo:hover::before,
+.botonIdioma:hover::before {
+  width: 20px;
+  height: 20px;
+}
+
+.botonIdioma {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.botonModo:hover,
+.botonIdioma:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.botonMenu {
+  display: none;
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: transform 0.3s ease;
+}
+
+.botonMenu:hover {
+  transform: scale(1.1);
+}
+
+.menuMovil {
+  position: fixed;
+  top: 0;
+  left: -80%;
+  width: 80%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 100%);
+  z-index: 2000;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.light .menuMovil {
+  background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+}
+
+.menuMovilAbierto {
+  left: 0;
+}
+
+.cerrarMenu {
+  position: absolute;
+  top: 1rem;
+  right: -3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #1e3a8a;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2001;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+}
+
+.cerrarMenu:hover {
+  transform: rotate(90deg) scale(1.1);
+  background: #2563eb;
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.6);
+}
+
+.contenidoMenuMovil {
+  padding: 2rem;
+}
+
+.perfilMovil {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(30, 58, 138, 0.2);
+  margin-bottom: 2rem;
+}
+
+.avatarMovil {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #1e3a8a;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.imagenPerfilMovil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perfilMovil h3 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  color: #3b82f6;
+}
+
+.perfilMovil p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+}
+
+.light .perfilMovil p {
+  color: rgba(30, 58, 138, 0.6);
+}
+
+.navegacionMovil {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.enlaceMovil {
+  background: transparent;
+  border: 1px solid transparent;
+  border-left: 3px solid transparent;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.enlaceMovil::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 20px 20px;
+  border-color: transparent transparent #1e3a8a transparent;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.enlaceMovil:hover::before {
+  opacity: 1;
+  border-width: 0 0 25px 25px;
+}
+
+.light .enlaceMovil {
+  color: rgba(30, 58, 138, 0.8);
+}
+
+.enlaceMovil ion-icon {
+  font-size: 1.3rem;
+  color: #3b82f6;
+}
+
+.enlaceMovil:hover {
+  border-left-color: #1e3a8a;
+  transform: translateX(5px);
+  background: rgba(30, 58, 138, 0.05);
+}
+
+.enlaceMovilActivo {
+  background: transparent;
+  color: white;
+  border-left: 3px solid #3b82f6;
+  position: relative;
+}
+
+.enlaceMovilActivo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(135deg, transparent 50%, #1e3a8a 50%);
+}
+
+.enlaceMovilActivo ion-icon {
+  color: #60a5fa;
+}
+
+.light .enlaceMovilActivo {
+  color: #1e3a8a;
+}
+
+.controlesMovil {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(30, 58, 138, 0.2);
+  border-bottom: 1px solid rgba(30, 58, 138, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.botonModoMovil,
+.botonIdiomaMovil {
+  background: transparent;
+  border: 1px solid rgba(30, 58, 138, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.botonModoMovil::before,
+.botonIdiomaMovil::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: #1e3a8a;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  transition: all 0.3s ease;
+}
+
+.light .botonModoMovil,
+.light .botonIdiomaMovil {
+  color: rgba(30, 58, 138, 0.8);
+}
+
+.botonModoMovil:hover,
+.botonIdiomaMovil:hover {
+  transform: translateX(5px);
+  border-color: #3b82f6;
+}
+
+.botonModoMovil:hover::before,
+.botonIdiomaMovil:hover::before {
+  width: 30px;
+  height: 30px;
+}
+
+.redesMovil {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.redSocial {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #1e3a8a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.redSocial::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background: #1e3a8a;
+  border-radius: 50% 0 0 0;
+  transition: all 0.3s ease;
+}
+
+.redSocial:hover {
+  color: white;
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+}
+
+.redSocial:hover::before {
+  width: 50px;
+  height: 50px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.overlayVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+  .navegacionDesktop,
+  .botonModo,
+  .botonIdioma {
+    display: none;
+  }
+
+  .botonMenu {
+    display: flex;
+  }
+
+  .contenidoHeader {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .logoImagen {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoTexto {
+    font-size: 1.1rem;
+  }
+}
