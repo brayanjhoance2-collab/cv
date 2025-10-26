@@ -43,12 +43,13 @@ export async function obtenerDatos() {
       }
     },
     redesAcerca: {
+      /*
       github: {
-        url: "https://github.com/Brayan-ce",
+        url: "https://github.com/brayanjhoance2-collab",
         icono: "logo-github"
-      },
+      },*/
       facebook: {
-        url: "https://www.facebook.com/profile.php?id=61557211135195",
+        url: "https://www.facebook.com/profile.php?id=61556819831554",
         icono: "logo-facebook"
       },
       whatsapp: {

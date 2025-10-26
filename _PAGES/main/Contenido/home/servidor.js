@@ -78,7 +78,7 @@ export async function obtenerDatos() {
     },
     redesHome: {
         facebook: {
-        url: "https://instagram.com/tu-usuario",
+        url: "https://www.facebook.com/profile.php?id=61556819831554",
         icono: "logo-facebook"
       },
 /*      github: {
